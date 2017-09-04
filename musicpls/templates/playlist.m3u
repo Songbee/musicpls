@@ -1,0 +1,7 @@
+#EXTM3U
+# Generated using music.pls version 0.0.0
+
+{% for t in tracks %}
+#EXTINF:{{(t.durationMs / 1000) | int}},{{t.artists[0].name}} - {{t.title}}
+{{url_for("stream", id=t.id, _external=True)}}
+{% endfor %}
